@@ -1,0 +1,33 @@
+/* Cấu hình cho Sidebar */
+#sidebar {
+  width: 250px;
+  min-height: 100vh;
+  position: fixed;
+}
+
+#sidebar .nav-link {
+  font-size: 16px;
+  padding: 10px 15px;
+}
+
+#sidebar .nav-link:hover {
+  background-color: #495057;
+}
+
+/* Cấu hình cho Main Content */
+.container-fluid {
+  margin-left: 260px;
+}
+
+.card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  margin-top: 30px;
+}
