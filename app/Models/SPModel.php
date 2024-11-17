@@ -12,15 +12,27 @@ class SPModel extends BaseModel
         return $this->getAllData($sql);
     }
 
-    function addSetBuffet($tenSetBuffet, $giaSetBuffet, $moTaSetBuff)
+    function addSetBuffet($tenSetBuffet, $giaSetBuffet, $moTaSetBuffet)
     {
-        $sql = "INSERT INTO `setbuffet`(`tenSetBuffet`, `giaSetBuffet`, `moTaSetBuff`) VALUES ('$tenSetBuffet','$giaSetBuffet','$moTaSetBuff')";
+        $sql = "INSERT INTO `setbuffet`(`tenSetBuffet`, `giaSetBuffet`, `moTaSetBuffet`) VALUES ('$tenSetBuffet','$giaSetBuffet','$moTaSetBuffet')";
         return $this->getRowData($sql);
     }
 
     function deleteSetBuffet($maSetBuffet)
     {
         $sql = "DELETE FROM `setbuffet` WHERE `maSetBuffet` = '$maSetBuffet'";
+        return $this->getRowData($sql);
+    }
+
+    function editSetBuffet($maSetBuffet)
+    {
+        $sql = "SELECT * FROM `setBuffet` WHERE `maSetBuffet` = '$maSetBuffet'";
+        return $this->getRowData($sql);
+    }
+
+    function updateSetBuffet($maSetBuffet, $tenSetBuffet, $giaSetBuffet, $moTaSetBuffet)
+    {
+        $sql = "UPDATE `setbuffet` SET `tenSetBuffet`='$tenSetBuffet',`giaSetBuffet`='$giaSetBuffet',`moTaSetBuffet`='$moTaSetBuffet' WHERE `maSetBuffet` = '$maSetBuffet'";
         return $this->getRowData($sql);
     }
 }

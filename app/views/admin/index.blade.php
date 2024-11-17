@@ -18,7 +18,7 @@
                         <a class="nav-link text-white" href="mon-an">Món ăn</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="dat-ban">Đặt bàn</a>
+                        <a class="nav-link text-white" href="danh-sach-ban">Đặt bàn</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="cai-dat">Cài đặt</a>

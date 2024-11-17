@@ -12,11 +12,38 @@ $router = new RouteCollector();
 $router->get('/', function () {
     return header("Location: admin");
 });
+
+// set buffet----------------------------------------------------------------------------
 $router->get("admin", [App\Controllers\SpController::class, "index"]);
 $router->get("set-buffet", [App\Controllers\SpController::class, "getAllSetBuffet"]);
 $router->get("them-moi-set-buffet", [App\Controllers\SpController::class, "formAddSetBuffet"]);
 $router->post("them-moi-set-buffet", [App\Controllers\SpController::class, "addSetBF"]);
 $router->get("xoa-set-buffet", [App\Controllers\SpController::class, "deleteSetBF"]);
+$router->get("cap-nhat-set-buffet", [App\Controllers\SpController::class, "editSetBF"]);
+$router->post("cap-nhat-set-buffet", [App\Controllers\SpController::class, "updateSetBF"]);
+
+// Món Ăn----------------------------------------------------------------------------
+$router->get("mon-an", [App\Controllers\MonAnController::class, "getAllListMA"]);
+$router->get("them-moi-mon-an", [App\Controllers\MonAnController::class, "FormAddMA"]);
+$router->post("them-moi-mon-an", [App\Controllers\MonAnController::class, "addMA"]);
+// $router->get("xoa-mon-an", [App\Controllers\MonAnController::class, "deleteMA"]);
+$router->get("cap-nhat-mon-an", [App\Controllers\MonAnController::class, "editMA"]);
+$router->post("cap-nhat-mon-an", [App\Controllers\MonAnController::class, "updateMA"]);
+
+// Bàn----------------------------------------------------------------------------
+$router->get("danh-sach-ban", [App\Controllers\BanController::class, "getAllTables"]);
+$router->get("dat-ban", [App\Controllers\BanController::class, "formDatBan"]);
+$router->post("dat-ban", [App\Controllers\BanController::class, "DATBAN"]);
+
+
+
+
+
+
+
+
+
+
 
 
 

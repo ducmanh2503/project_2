@@ -15,10 +15,13 @@
                     <input type="number" class="form-control" id="giaSetBuffet" name="giaSetBuffet" required>
                 </div>
                 <div class="mb-3">
-                    <label for="moTaSetBuff" class="form-label">Mô Tả</label>
-                    <textarea class="form-control" id="moTaSetBuff" name="moTaSetBuff" rows="3"></textarea>
+                    <label for="moTaSetBuffet" class="form-label">Mô Tả</label>
+                    <textarea class="form-control" id="moTaSetBuffet" name="moTaSetBuffet" rows="3"></textarea>
                 </div>
-                <input type="submit" value="Thêm mới" name="btn_add" class="btn btn-success">
+                <div class="d-flex justify-content-between">
+                    <a href="set-buffet" class="btn btn-secondary">Quay lại</a>
+                    <input type="submit" value="Thêm mới" name="btn_add" class="btn btn-success">
+                </div>
             </form>
         </div>
     </div>

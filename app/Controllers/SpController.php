@@ -21,12 +21,12 @@ class SpController extends baseController
     {
         $SP = $this->SP->listSetBuffett();
         // var_dump($SP);
-        return $this->render("admin.setBuffet", ["SP" => $SP]);
+        return $this->render("admin.setBF.setBuffet", ["SP" => $SP]);
     }
 
     function formAddSetBuffet()
     {
-        return $this->render("admin.addSetBuffet");
+        return $this->render("admin.setBF.addSetBuffet");
     }
 
     function addSetBF()
@@ -34,8 +34,8 @@ class SpController extends baseController
         if (isset($_POST['btn_add'])) {
             $tenSetBuffet = $_POST['tenSetBuffet'];
             $giaSetBuffet = $_POST['giaSetBuffet'];
-            $moTaSetBuff = $_POST['moTaSetBuff'];
-            $this->SP->addSetBuffet($tenSetBuffet, $giaSetBuffet, $moTaSetBuff);
+            $moTaSetBuffet = $_POST['moTaSetBuffet'];
+            $this->SP->addSetBuffet($tenSetBuffet, $giaSetBuffet, $moTaSetBuffet);
             header("Location: set-buffet");
         }
     }
@@ -45,5 +45,25 @@ class SpController extends baseController
         $maSetBuffet = $_GET['id'];
         $this->SP->deleteSetBuffet($maSetBuffet);
         header("Location: set-buffet");
+    }
+
+    function editSetBF()
+    {
+        $maSetBuffet = $_GET['id'];
+        $setBF = $this->SP->editSetBuffet($maSetBuffet);
+        return $this->render("admin.setBF.updateSetBuffet", ["setBF" => $setBF]);
+    }
+
+    function updateSetBF()
+    {
+        if (isset($_POST["btn_update"])) {
+            $maSetBuffet = $_POST["maSetBuffet"];
+            $tenSetBuffet = $_POST["tenSetBuffet"];
+            $giaSetBuffet = $_POST["giaSetBuffet"];
+            $moTaSetBuffet = $_POST["moTaSetBuffet"];
+
+            $this->SP->updateSetBuffet($maSetBuffet, $tenSetBuffet, $giaSetBuffet, $moTaSetBuffet);
+            header("Location: set-buffet");
+        }
     }
 }
