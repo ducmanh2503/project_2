@@ -5,6 +5,7 @@
 
     <!-- Bảng quản lý -->
     <a href="them-moi-set-buffet" class="btn btn-primary">Thêm mới</a>
+    <a href="admin" class="btn btn-secondary">Quản trị</a>
     <div class="card">
         <div class="card-header bg-dark text-white">Danh Sách Set Buffet</div>
         <div class="card-body">
