@@ -22,6 +22,13 @@ $router->get("xoa-set-buffet", [App\Controllers\SpController::class, "deleteSetB
 $router->get("cap-nhat-set-buffet", [App\Controllers\SpController::class, "editSetBF"]);
 $router->post("cap-nhat-set-buffet", [App\Controllers\SpController::class, "updateSetBF"]);
 
+//Loại Món Ăn----------------------------------------------------------------------------
+$router->get("loai-mon-an", [App\Controllers\LoaiMonAnCtrl::class, "getAllLMA"]);
+$router->get("them-moi-loai-mon-an", [App\Controllers\LoaiMonAnCtrl::class, "formAddLoaiMon"]);
+$router->post("them-moi-loai-mon-an", [App\Controllers\LoaiMonAnCtrl::class, "addLoaiMon"]);
+$router->get("cap-nhat-loai-mon-an", [App\Controllers\LoaiMonAnCtrl::class, "editLoaiMon"]);
+$router->post("cap-nhat-loai-mon-an", [App\Controllers\LoaiMonAnCtrl::class, "updateLoaiMon"]);
+
 // Món Ăn----------------------------------------------------------------------------
 $router->get("mon-an", [App\Controllers\MonAnController::class, "getAllListMA"]);
 $router->get("them-moi-mon-an", [App\Controllers\MonAnController::class, "FormAddMA"]);
@@ -34,6 +41,9 @@ $router->post("cap-nhat-mon-an", [App\Controllers\MonAnController::class, "updat
 $router->get("danh-sach-ban", [App\Controllers\BanController::class, "getAllTables"]);
 $router->get("dat-ban", [App\Controllers\BanController::class, "formDatBan"]);
 $router->post("dat-ban", [App\Controllers\BanController::class, "DATBAN"]);
+
+// Cài đặt----------------------------------------------------------------------------
+$router->get("cai-dat", [App\Controllers\BanController::class, "getAllTables"]);
 
 
 
