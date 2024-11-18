@@ -6,9 +6,9 @@
     <!-- Bảng quản lý -->
     <a href="them-moi-loai-mon-an" class="btn btn-primary">Thêm mới</a>
     <a href="admin" class="btn btn-secondary">Quản trị</a>
-    <div class="card">
-        <div class="card-header bg-dark text-white">Danh Sách Loại Món Ăn</div>
-        <div class="card-body">
+    <div class="">
+        <div class=" bg-dark text-white">Danh Sách Loại Món Ăn</div>
+        <div>
             <table class="table table-bordered">
                 <thead class="table-light">
                     <tr>

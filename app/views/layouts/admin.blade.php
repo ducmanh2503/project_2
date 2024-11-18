@@ -2,7 +2,9 @@
 
 <body>
     <main>
-        @yield('content')
+     
+          @yield('content')
+    
     </main>
 </body>
 @include('layouts.footer')

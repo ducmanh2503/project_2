@@ -29,13 +29,29 @@ class SpController extends baseController
         return $this->render("admin.setBF.addSetBuffet");
     }
 
+    // function addSetBF()
+    // {
+    //     if (isset($_POST['btn_add'])) {
+    //         $tenSetBuffet = $_POST['tenSetBuffet'];
+    //         $giaSetBuffet = $_POST['giaSetBuffet'];
+    //         $moTaSetBuffet = $_POST['moTaSetBuffet'];
+    //         $this->SP->addSetBuffet($tenSetBuffet, $giaSetBuffet, $moTaSetBuffet);
+    //         header("Location: set-buffet");
+    //     }
+    // }
+
     function addSetBF()
     {
         if (isset($_POST['btn_add'])) {
-            $tenSetBuffet = $_POST['tenSetBuffet'];
-            $giaSetBuffet = $_POST['giaSetBuffet'];
-            $moTaSetBuffet = $_POST['moTaSetBuffet'];
-            $this->SP->addSetBuffet($tenSetBuffet, $giaSetBuffet, $moTaSetBuffet);
+            $setBuffets = [];
+            foreach ($_POST['setBuffets'] as $buffet) {
+                $setBuffets[] = [
+                    'tenSetBuffet' => $buffet['tenSetBuffet'],
+                    'giaSetBuffet' => $buffet['giaSetBuffet'],
+                    'moTaSetBuffet' => $buffet['moTaSetBuffet'],
+                ];
+            }
+            $this->SP->addMultipleSetBuffets($setBuffets);
             header("Location: set-buffet");
         }
     }
@@ -66,4 +82,26 @@ class SpController extends baseController
             header("Location: set-buffet");
         }
     }
+
+    function bulkActionSetBuffet()
+    {
+        if (isset($_POST['selectedIds']) && is_array($_POST['selectedIds'])) {
+            $selectedIds = $_POST['selectedIds'];
+            $actionType = $_POST['actionType'];
+    
+            if ($actionType === 'delete') {
+                foreach ($selectedIds as $id) {
+                    $this->SP->deleteSetBuffet($id); // Xóa từng mục
+                }
+                header("Location: set-buffet");
+            } elseif ($actionType === 'edit') {
+                // Chuyển đến form sửa, có thể truyền danh sách ID qua query string hoặc hiển thị form sửa riêng
+                $ids = implode(',', $selectedIds);
+                header("Location: cap-nhat-nhieu-set-buffet?ids=" . $ids);
+            }
+        } else {
+            header("Location: set-buffet");
+        }
+    }
+    
 }

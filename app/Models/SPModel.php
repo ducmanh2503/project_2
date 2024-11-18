@@ -12,11 +12,11 @@ class SPModel extends BaseModel
         return $this->getAllData($sql);
     }
 
-    function addSetBuffet($tenSetBuffet, $giaSetBuffet, $moTaSetBuffet)
-    {
-        $sql = "INSERT INTO `setbuffet`(`tenSetBuffet`, `giaSetBuffet`, `moTaSetBuffet`) VALUES ('$tenSetBuffet','$giaSetBuffet','$moTaSetBuffet')";
-        return $this->getRowData($sql);
-    }
+    // function addSetBuffet($tenSetBuffet, $giaSetBuffet, $moTaSetBuffet)
+    // {
+    //     $sql = "INSERT INTO `setbuffet`(`tenSetBuffet`, `giaSetBuffet`, `moTaSetBuffet`) VALUES ('$tenSetBuffet','$giaSetBuffet','$moTaSetBuffet')";
+    //     return $this->getRowData($sql);
+    // }
 
     function deleteSetBuffet($maSetBuffet)
     {
@@ -33,6 +33,17 @@ class SPModel extends BaseModel
     function updateSetBuffet($maSetBuffet, $tenSetBuffet, $giaSetBuffet, $moTaSetBuffet)
     {
         $sql = "UPDATE `setbuffet` SET `tenSetBuffet`='$tenSetBuffet',`giaSetBuffet`='$giaSetBuffet',`moTaSetBuffet`='$moTaSetBuffet' WHERE `maSetBuffet` = '$maSetBuffet'";
+        return $this->getRowData($sql);
+    }
+
+    function addMultipleSetBuffets($setBuffets)
+    {
+        $values = [];
+        foreach ($setBuffets as $buffet) {
+            $values[] = "('{$buffet['tenSetBuffet']}', '{$buffet['giaSetBuffet']}', '{$buffet['moTaSetBuffet']}')";
+        }
+        $valuesString = implode(',', $values);
+        $sql = "INSERT INTO `setbuffet`(`tenSetBuffet`, `giaSetBuffet`, `moTaSetBuffet`) VALUES $valuesString";
         return $this->getRowData($sql);
     }
 }
