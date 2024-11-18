@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\SpController;
 use Phroute\Phroute\RouteCollector;
 
 $url = !isset($_GET['url']) ? "/" : $_GET['url'];
@@ -21,6 +22,9 @@ $router->post("them-moi-set-buffet", [App\Controllers\SpController::class, "addS
 $router->get("xoa-set-buffet", [App\Controllers\SpController::class, "deleteSetBF"]);
 $router->get("cap-nhat-set-buffet", [App\Controllers\SpController::class, "editSetBF"]);
 $router->post("cap-nhat-set-buffet", [App\Controllers\SpController::class, "updateSetBF"]);
+// Route xử lý hành động hàng loạt
+$router->post('bulk-action-set-buffet', [SpController::class, 'bulkActionSetBuffet']);
+
 
 //Loại Món Ăn----------------------------------------------------------------------------
 $router->get("loai-mon-an", [App\Controllers\LoaiMonAnCtrl::class, "getAllLMA"]);

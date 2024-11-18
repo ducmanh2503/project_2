@@ -2,6 +2,7 @@
 
 @section('content')
     <!-- Main Content -->
+     
     <div class="row">
         <div class="col-2">
             <!-- Sidebar -->

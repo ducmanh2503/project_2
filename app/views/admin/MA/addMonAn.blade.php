@@ -2,9 +2,9 @@
 
 @section('content')
     <!-- Form thêm mới -->
-    <div class="card mb-4">
-        <div class="card-header bg-primary text-white">Thêm Mới Món Ăn</div>
-        <div class="card-body">
+    <div class="mb-4">
+        <div class=" bg-primary text-white">Thêm Mới Món Ăn</div>
+        <div>
             <form method="POST" action="them-moi-mon-an">
                 <div class="mb-3">
                     <label for="tenMonAn" class="form-label">Tên Món Ăn</label>
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <a href="set-buffet" class="btn btn-secondary">Quay lại</a>
+                    <a href="mon-an" class="btn btn-secondary">Quay lại</a>
                     <input type="submit" value="Thêm mới" name="btn_add" class="btn btn-success">
                 </div>
             </form>
