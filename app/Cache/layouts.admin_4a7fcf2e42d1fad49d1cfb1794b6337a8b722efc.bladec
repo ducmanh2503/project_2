@@ -2,9 +2,11 @@
 
 <body>
  <main>
- 
+
+ <div class="container">
  <?php echo $this->yieldContent('content'); ?>
- 
+ </div>
+
  </main>
 </body>
 <?php echo $this->runChild('layouts.footer'); ?>
